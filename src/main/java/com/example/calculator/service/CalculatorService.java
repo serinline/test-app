@@ -10,8 +10,7 @@ import java.util.function.DoubleBinaryOperator;
 public class CalculatorService {
 
     public static Double calculate(List<Double> values, String operator){
-        return Arrays.asList(Operation.values())
-                .stream()
+        return Arrays.stream(Operation.values())
                 .filter(op -> op.getSymbol().equals(operator))
                 .findFirst()
                 .get()
@@ -21,7 +20,7 @@ public class CalculatorService {
 
     enum Operation {
 
-        ADD("+", (a, b) -> a + b),
+        ADD("+", Double::sum),
         SUB("-", (a, b) -> a - b),
         MUL("*", (a, b) -> a * b),
         DIV("/", (a, b) -> a / b);
