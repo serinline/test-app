@@ -16,7 +16,7 @@ public class CalculatorServiceUnitTest {
 
     @Test
     public void shouldCalculateResult(){
-        assertEquals(3.0, calculatorService.calculate(Arrays.asList(2.0, 1.0), "+"));
-        assertEquals(1.0, calculatorService.calculate(Arrays.asList(2.0, 1.0), "-"));
+        assertEquals(3.0, calculatorService.calculate(Arrays.asList(2.0, 1.0), '+'));
+        assertEquals(1.0, calculatorService.calculate(Arrays.asList(2.0, 1.0), '-'));
     }
 }

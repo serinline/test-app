@@ -9,7 +9,7 @@ import java.util.function.DoubleBinaryOperator;
 @Service
 public class CalculatorService {
 
-    public static Double calculate(List<Double> values, String operator){
+    public Double calculate(List<Double> values, char operator){
         return Arrays.stream(Operation.values())
                 .filter(op -> op.getSymbol().equals(operator))
                 .findFirst()
@@ -28,7 +28,7 @@ public class CalculatorService {
         private final String symbol;
         private final DoubleBinaryOperator operator;
 
-        private Operation(String symbol, DoubleBinaryOperator operator) {
+        Operation(String symbol, DoubleBinaryOperator operator) {
             this.symbol = symbol;
             this.operator = operator;
         }
