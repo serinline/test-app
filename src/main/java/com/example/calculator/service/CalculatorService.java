@@ -9,6 +9,7 @@ import java.util.function.DoubleBinaryOperator;
 @Service
 public class CalculatorService {
 
+
     public Double calculate(List<Double> values, char operator){
         return Arrays.stream(Operation.values())
                 .filter(op -> op.getSymbol().equals(operator))
@@ -20,15 +21,15 @@ public class CalculatorService {
 
     enum Operation {
 
-        ADD("+", Double::sum),
-        SUB("-", (a, b) -> a - b),
-        MUL("*", (a, b) -> a * b),
-        DIV("/", (a, b) -> a / b);
+        ADD('+', Double::sum),
+        SUB('-', (a, b) -> a - b),
+        MUL('*', (a, b) -> a * b),
+        DIV('/', (a, b) -> a / b);
 
-        private final String symbol;
+        private final Character symbol;
         private final DoubleBinaryOperator operator;
 
-        Operation(String symbol, DoubleBinaryOperator operator) {
+        Operation(Character symbol, DoubleBinaryOperator operator) {
             this.symbol = symbol;
             this.operator = operator;
         }
@@ -37,7 +38,7 @@ public class CalculatorService {
             return operator.applyAsDouble(d1, d2);
         }
 
-        public String getSymbol() {
+        public Character getSymbol() {
             return symbol;
         }
     }
