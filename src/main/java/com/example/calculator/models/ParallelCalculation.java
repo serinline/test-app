@@ -16,7 +16,6 @@ public class ParallelCalculation extends RecursiveTask<Double> {
     private List<Character> expressionList;
 
     public ParallelCalculation(Expression expression){
-        this.calculatorService = new CalculatorService();
         this.expressionList = expression.getExpression()
                 .chars()
                 .mapToObj(e -> (char) e)
