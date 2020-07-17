@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CalculatorServiceUnitTest {
 
     @Autowired
-    private CalculatorService calculatorService;
+    private CalculatorService calculatorService = new CalculatorService();
 
     @Test
     public void shouldCalculateResult(){
