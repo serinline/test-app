@@ -1,5 +1,6 @@
 package com.example.calculator.service;
 
+import com.example.calculator.models.Expression;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -9,6 +10,12 @@ import java.util.function.DoubleBinaryOperator;
 @Service
 public class CalculatorService {
 
+    ParallelCalculation parallelCalculation;
+
+    public char invokeCalculation(Expression expression){
+        parallelCalculation = new ParallelCalculation(expression);
+        return parallelCalculation.getResult(expression);
+    }
 
     public Double calculate(List<Double> values, char operator){
         return Arrays.stream(Operation.values())
@@ -17,7 +24,6 @@ public class CalculatorService {
                 .get()
                 .getResult(values.get(0), values.get(1));
     }
-
 
     enum Operation {
 

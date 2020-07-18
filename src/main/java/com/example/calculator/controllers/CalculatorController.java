@@ -14,7 +14,7 @@ public class CalculatorController {
     private CalculatorService calculatorService;
 
     @PostMapping("/evaluate")
-    double calculate(@RequestBody Expression expression){
-        return 1.;
+    char calculate(@RequestBody Expression expression){
+        return calculatorService.invokeCalculation(expression);
     }
 }
