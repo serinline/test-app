@@ -21,7 +21,7 @@ public class CalculatorController {
         if (expression.getExpression().isEmpty()){
             throw new InputError("Expression doesn't exist");
         }
-        if (expression.getExpression().contains("[a-zA-Z]+")){
+        if (expression.getExpression().chars().anyMatch(Character::isLetter)){
             throw new InputError("Unable to calculate result of string of letters");
         }
         else
