@@ -2,24 +2,28 @@ package com.example.calculator.service;
 
 import com.example.calculator.models.Expression;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 import java.util.stream.Collectors;
 
+@Component
 public class ParallelCalculation extends RecursiveTask <HashMap<Integer, Double>> {
 
     @Autowired
-    private CalculatorService calculatorService = new CalculatorService();
+    private CalculatorService calculatorService;
 
     @Autowired
-    private ShuntingYard shuntingYard = new ShuntingYard();
+    private ShuntingYard shuntingYard;
 
     private ArrayList<Character> expressionList;
     private HashMap<Integer, Double> resultSet;
     private int subtaskIndex;
 
+
+    public ParallelCalculation(){}
 
     public ParallelCalculation(Expression expression){
         this.expressionList = getPolishNotationOfExpression(expression);

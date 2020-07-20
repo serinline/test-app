@@ -1,6 +1,11 @@
 package com.example.calculator.service;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ShuntingYard {
+
+    public ShuntingYard(){}
 
     private enum Precedence {
         LPAREN(0),

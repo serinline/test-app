@@ -1,18 +1,20 @@
 package com.example.calculator;
 
 import com.example.calculator.service.CalculatorService;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+@SpringBootTest
 public class CalculatorServiceUnitTest {
 
     @Autowired
-    private CalculatorService calculatorService = new CalculatorService();
+    private CalculatorService calculatorService;
 
     @Test
     public void shouldCalculateResult(){

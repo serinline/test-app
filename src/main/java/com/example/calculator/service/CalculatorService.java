@@ -12,6 +12,8 @@ public class CalculatorService {
 
     ParallelCalculation parallelCalculation;
 
+    public CalculatorService(){}
+
     public char invokeCalculation(Expression expression){
         parallelCalculation = new ParallelCalculation(expression);
         return parallelCalculation.getResult(expression);

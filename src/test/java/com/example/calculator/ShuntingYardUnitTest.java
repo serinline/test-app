@@ -3,13 +3,15 @@ package com.example.calculator;
 import com.example.calculator.service.ShuntingYard;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@SpringBootTest
 public class ShuntingYardUnitTest {
 
     @Autowired
-    private ShuntingYard shuntingYard = new ShuntingYard();
+    private ShuntingYard shuntingYard;
 
     @Test
     public void testPostfixCalculation(){
